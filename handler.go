@@ -1,12 +1,9 @@
 package lab2
 
 import (
-	//"fmt"
-
 	"io"
 	"io/ioutil"
 	"strings"
-	//"io/ioutil"
 )
 
 // ComputeHandler should be constructed with input io.Reader and output io.Writer.
@@ -20,11 +17,13 @@ type ComputeHandler struct {
 func (ch *ComputeHandler) Compute() error {
 	//TODO: Implement.
 
-	expr, err := ioutil.ReadAll(ch.Input)
-	exp := &Exp{Input: strings.NewReader(string(expr))}
-	output := make(chan string)
-	go exp.ToInfix(output)
 	var res string
+	input, err := ioutil.ReadAll(ch.Input)
+	exp := &Exp{Input: strings.NewReader(string(input))}
+	output := make(chan string)
+
+	go exp.ToInfix(output)
+
 	for data := range output {
 		res = res + data
 	}
