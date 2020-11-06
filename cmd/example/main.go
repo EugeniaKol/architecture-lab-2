@@ -57,20 +57,6 @@ func main() {
 		_, _ = os.Stderr.WriteString(err.Error())
 		return
 	}
-	// TODO: Change this to accept input from the command line arguments as described in the task and
-	//       output the results using the ComputeHandler instance.
-	//       handler := &lab2.ComputeHandler{
-	//           Input: {construct io.Reader according the command line parameters},
-	//           Output: {construct io.Writer according the command line parameters},
-	//       }
-	//       err := handler.Compute()
-
-	// handler := &lab2.ComputeHandler{
-	// 	Input:  src,
-	// 	Output: dest,
-	// }
-
-	// err := handler.Compute()
-	// res, _ := lab2.ToInfix()
+	// res, _ := lab2.ToInfix("+ 2 2")
 	// fmt.Println(res)
 }
