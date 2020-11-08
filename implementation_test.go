@@ -35,7 +35,7 @@ func (s * TestSuite) TestToInfix(c *C) {
             expected: "(((a * b) ^ c) / d)",
         },
         {
-            dummy: "+5 73 + 20 t ^ /",
+            dummy: "5 73 + 20 t ^ /",
             expected: "((5 + 73) / (20 ^ t))",
         },
         {
