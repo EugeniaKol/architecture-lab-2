@@ -23,7 +23,7 @@ func (s *TestSuite) TestHandler1(c *C) {
 }
 
 func (s *TestSuite) TestHandler2(c *C) {
-	input := "4 2# + 1 -"
+	input := "5 6+"
 	exp := strings.NewReader(input)
 
 	buf := new(bytes.Buffer)
