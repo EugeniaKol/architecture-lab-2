@@ -9,3 +9,4 @@ jobs:
         with:
           go-version: 1.15
       - run: make out/example
+      - run: make test
