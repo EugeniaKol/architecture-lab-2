@@ -1,6 +1,7 @@
 package lab2
 
 import (
+	"errors"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -19,7 +20,13 @@ func (ch *ComputeHandler) Compute() error {
 
 	var res string
 	input, err := ioutil.ReadAll(ch.Input)
+
+	if strings.Contains(string(input), " + ") == false || strings.Contains(string(input), " - ") == false || strings.Contains(string(input), " * ") == false || strings.Contains(string(input), " / ") == false {
+		return errors.New("Incorrect synthax")
+	}
+
 	exp := &Exp{Input: strings.NewReader(string(input))}
+
 	output := make(chan string)
 
 	go exp.ToInfix(output)
