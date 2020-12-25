@@ -2,7 +2,6 @@ package lab2
 
 import (
 	"io"
-	"io/ioutil"
 )
 
 // ComputeHandler should be constructed with input io.Reader and output io.Writer.
@@ -17,7 +16,7 @@ func (ch *ComputeHandler) Compute() error {
 	//TODO: Implement.
 
 	var res string
-	_, err := ioutil.ReadAll(ch.Input)
+	//_, err := ioutil.ReadAll(ch.Input)
 
 	// if strings.Contains(string(input), " + ") == false && strings.Contains(string(input), " - ") == false && strings.Contains(string(input), " * ") == false && strings.Contains(string(input), " / ") == false && strings.Contains(string(input), " +") == false && strings.Contains(string(input), " -") == false && strings.Contains(string(input), " *") == false && strings.Contains(string(input), " /") == false {
 	// 	return errors.New("Incorrect synthax")
@@ -34,15 +33,15 @@ func (ch *ComputeHandler) Compute() error {
 		res = res + data
 	}
 
-	if err != nil {
-		return err
-	} else {
-		buf := []byte(res)
+	// if err != nil {
+	// 	return err
+	// } else {
+	buf := []byte(res)
 
-		if _, err := ch.Output.Write(buf); err != nil {
-			return err
-		}
+	if _, err := ch.Output.Write(buf); err != nil {
+		return err
 	}
+	//}
 
 	return nil
 }
