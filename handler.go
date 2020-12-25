@@ -1,10 +1,8 @@
 package lab2
 
 import (
-	"errors"
 	"io"
 	"io/ioutil"
-	"strings"
 )
 
 // ComputeHandler should be constructed with input io.Reader and output io.Writer.
@@ -19,13 +17,14 @@ func (ch *ComputeHandler) Compute() error {
 	//TODO: Implement.
 
 	var res string
-	input, err := ioutil.ReadAll(ch.Input)
+	_, err := ioutil.ReadAll(ch.Input)
 
-	if strings.Contains(string(input), " + ") == false && strings.Contains(string(input), " - ") == false && strings.Contains(string(input), " * ") == false && strings.Contains(string(input), " / ") == false && strings.Contains(string(input), " +") == false && strings.Contains(string(input), " -") == false && strings.Contains(string(input), " *") == false && strings.Contains(string(input), " /") == false {
-		return errors.New("Incorrect synthax")
-	}
+	// if strings.Contains(string(input), " + ") == false && strings.Contains(string(input), " - ") == false && strings.Contains(string(input), " * ") == false && strings.Contains(string(input), " / ") == false && strings.Contains(string(input), " +") == false && strings.Contains(string(input), " -") == false && strings.Contains(string(input), " *") == false && strings.Contains(string(input), " /") == false {
+	// 	return errors.New("Incorrect synthax")
+	// }
 
-	exp := &Exp{Input: strings.NewReader(string(input))}
+	//exp := &Exp{Input: strings.NewReader(string(input))}
+	exp := &Exp{Input: ch.Input}
 
 	output := make(chan string)
 
